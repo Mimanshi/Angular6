@@ -1,0 +1,30 @@
+
+<!-- interpolation -->
+<h2>{{myName}}</h2>
+<h2>Details:</h2>
+<!-- ngModel -->
+<div>
+    <label>Name:
+      <input [(ngModel)]="extrafile.fullName" placeholder="enter name">
+    </label>
+  </div>
+  <br>
+  <div>
+    <label>Project Name:
+      <input [(ngModel)]="extrafile.projectName" placeholder="enter project Name">
+    </label>
+  </div>
+  <br>
+  <div>
+    <label>Employee Id:
+      <input [(ngModel)]="extrafile.empId" placeholder="enter employee id">
+    </label>
+  </div>
+  <!-- employee details in file details.ts -->
+  <h2>Employees</h2>
+<ul class="emp">
+  <li *ngFor="let details of details">
+      <!-- pipeing -->
+    {{details.fullName | uppercase}}   {{details.projectName}}   {{details.empId}}
+  </li>
+</ul>
