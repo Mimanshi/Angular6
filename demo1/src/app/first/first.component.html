@@ -23,8 +23,12 @@
   <!-- employee details in file details.ts -->
   <h2>Employees</h2>
 <ul class="emp">
-  <li *ngFor="let details of details">
+  <!-- toggle styleing or conditional css -->
+  <li *ngFor="let details of details" [class.selected]="details === selectedEmp" (click)="onSelect(details)" >
       <!-- pipeing -->
     {{details.fullName | uppercase}}   {{details.projectName}}   {{details.empId}}
   </li>
 </ul>
+<!-- parent-child data binding and display of component
+details = input -->
+<app-employeedetails [details]="selectedEmp"></app-employeedetails>
