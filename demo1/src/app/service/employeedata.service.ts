@@ -7,9 +7,9 @@ import { MessageService } from './message.service';
   providedIn: 'root'
 })
 export class EmployeedataService {
-
+  static addEntry = { employeename: '' , employeeproject: '', employeeid: ''};
+  static detailLength = Details.length;
   constructor(private messageService: MessageService) { }
-
   getDetails(): Observable<extraFile[]> {
     this.messageService.add('message goes here');
     return of(Details);

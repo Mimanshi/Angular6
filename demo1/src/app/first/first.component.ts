@@ -12,18 +12,21 @@ export class FirstComponent implements OnInit {
   extrafile: extraFile = {
     fullName : 'Mimanshi Tiwari',
     projectName : 'Engineering Tool',
-    empId : 2184
+    empId : '2184'
 
   };
   
   details : extraFile[];
 
   selectedEmp: extraFile;
+
+  addEmp: extraFile;
   
   constructor(private EmployeedataService: EmployeedataService) { }
 
   ngOnInit() {
     this.getDetails();
+    
   }
   
   onSelect(details: extraFile): void {
@@ -35,5 +38,16 @@ export class FirstComponent implements OnInit {
       .subscribe(empdata => this.details = empdata);
   }
  // asynchronous approach will work when the dataService requests data from the server.
+  
+ onClickAdd(details: extraFile): void {
+  this.addEmp = details;
+  this.selectedEmp = details;
+ 
+}
+ 
+onClickDelete(details: extraFile): void {
+  this.selectedEmp = details;
+}
+
 }
 

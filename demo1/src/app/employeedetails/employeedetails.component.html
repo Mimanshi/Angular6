@@ -1,14 +1,35 @@
-<div>
+<form #userForm="ngForm">
+<div >
+   
     <!-- *ngIf -->
    <div *ngIf= "details" class="selectresult">
+    <div class ="form-group">
     <label>Name:
-      <input [(ngModel)]="details.fullName" placeholder="select employee">
+      <input [(ngModel)]="details.fullName" placeholder="select employee" id="fullname" name="employeename">
     </label>
+    </div>
+    <br>
+    <div class ="form-group">
   <label>project:
-      <input [(ngModel)]="details.projectName" placeholder="current project">
+      <input [(ngModel)]="details.projectName" placeholder="current project" id="projectname" name="employeeproject">
     </label>
+    </div>
+    <br>
+    <div class ="form-group">
     <label>emp Id:
-        <input [(ngModel)]="details.empId" placeholder="employee id">
+        <input [(ngModel)]="details.empId" placeholder="employee id" id="employeeid" name="employeeid">
       </label>
+      </div>
+  
+      <br>
+      <span><button type="submit" (click)="validation()">SUBMIT</button></span>
+
   </div>
+  <p id="warning"></p>
+   <ul id="addedemployee" class="addedemployee" >
+      {{userForm.value.employeename | json |uppercase}}    {{userForm.value.employeeproject | json |uppercase}}    {{userForm.value.employeeid | json |uppercase}}
+  </ul>
+  
+  
   </div>
+</form>
